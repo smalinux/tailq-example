@@ -140,7 +140,51 @@ main(int argc, char **argv)
 
 
 
+    printf("traversal without TAILQ_FOREACH_REVERSE: ");
+    struct tailq_entry *tmp;
+    tmp = my_tailq_head.tqh_first;
+        printf("%d ", tmp->value);
+    tmp = tmp->entries.tqe_next;
+        printf("%d ", tmp->value);
+    printf("\n");
 
+    printf("Reverse traversal without TAILQ_FOREACH_REVERSE: ");
+    struct tailq_entry *tmp_r;
+    tmp_r = TAILQ_LAST(&my_tailq_head, tailhead);
+        printf("%d ", tmp_r->value);
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    if (tmp_r) {
+        tmp_r = TAILQ_PREV(tmp_r, tailhead, entries);
+        if (tmp_r) printf("%d ", tmp_r->value);
+    }
+    printf("\n");
 
 
     // 	/* Traverse the tail queue forward. */
